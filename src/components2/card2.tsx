@@ -1,19 +1,19 @@
-import { useEffect } from "react"
-import useHub2 from "../hooks/hub2"
-import { useObserverContext } from "../hooks/hub2Context"
+import { useEffect, useRef } from "react"
+import { useHubx } from "../hooks/hub2"
 
 export const Card2 = () => {
 
-    const {subscribe} = useObserverContext()
+    const {subscribe, lang} = useHubx()
+    const langRef = useRef(lang)
+    langRef.current = lang
+    
 
-    const func = () => {console.log('oi')}
+    const func = () => {console.log(langRef.current === 'pt' ? 'oi' : 'hi')}
 
     useEffect(() => {
         subscribe('teste', func)
     }, [])
 
-    
 
-
-    return <div>Card2</div>
+    return <div>{lang === 'pt' ? 'PORTUGUÊS' : 'INGLÊS'}</div>
 }

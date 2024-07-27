@@ -1,8 +1,7 @@
 import React, { createContext, useContext } from 'react';
-import useHub2, { Hub2 } from './hub2';
+import { Hub2, useHub2 } from './hub2';
 
-interface ObserverContextType extends Hub2 {}
-const ObserverContext = createContext<ObserverContextType | null>(null);
+const ObserverContext = createContext<Hub2 | null>(null);
 
 export const ObserverProvider = ({ children }: { children: React.ReactNode }) => {
     const observer = useHub2();

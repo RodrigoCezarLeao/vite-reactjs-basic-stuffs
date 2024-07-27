@@ -1,10 +1,10 @@
-import useHub2 from "../hooks/hub2"
-import { useObserverContext } from "../hooks/hub2Context"
+import { useHubx } from "../hooks/hub2"
 
 export const Button2 = () => {
-    const { notify } = useObserverContext()
+    const { notify, setLang } = useHubx()
     
     return <button onClick={() => {
+        setLang('en')
         notify('teste')
     }}>Clicar</button>
 }
